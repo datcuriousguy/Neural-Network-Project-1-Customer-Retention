@@ -20,7 +20,7 @@ Files:
     
     The main python code for the neural network, including hardcoded hyperparameters.
     
-- **`expected_sample_data.txt`**
+- **`expected_sample_data.md`**
     
     A text file containing a result of running data_creation.py, for reference.
     
