@@ -154,3 +154,62 @@ Note: you can use this line to print the entire set of predictions and their 6 l
 
 """
 print(full_data)
+
+""" /// ... PREPARING THE DATA ... /// """
+
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+def prepare_data():
+    # we use the existing df with the churn column
+
+    """
+    prepare_data() is meant to prepare the (now created) data for being used to train the neural network in
+    neural_network.py
+
+    note: X_test_tensor and Y_test_tensor are only going to be used for the testing process in the neural network,
+    so not yet.
+
+    features_np is the dataframe using all datatypes as float32.
+
+    labels_np is reshaped as a vertical matrix of the
+
+    [[0.]
+    [0.]
+    [0.]
+    ...
+    [0.]
+    [0.]
+    [0.]]
+
+    here, the significance of the -1 is that it allows the appropriate number of rows as necessary (dynamically).
+
+    Again, the training data is wrapped into a DataLoader to enable batch training with shuffling (good practice).
+    """
+
+    features_np = df.drop(columns='churn').values.astype(np.float32)
+
+    labels_np = df['churn'].values.astype(np.float32).reshape(-1, 1)
+
+    # Train-test split ratio of 80-20. 42 is arbitrarily chosen just like seed()
+    X_train, X_test, y_train, y_test = train_test_split(features_np, labels_np, test_size=0.2, random_state=42)
+
+    # Convert to tensors
+    X_train_tensor = torch.tensor(X_train)
+    y_train_tensor = torch.tensor(y_train)
+    X_test_tensor = torch.tensor(X_test)
+    y_test_tensor = torch.tensor(y_test)
+
+    # Wrap in DataLoader
+    train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
+    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+
+    """
+    for batch_features, batch_labels in train_loader:
+    # Forward pass, loss, backward pass, optimizer step happen in this function in the neural_network.py file.
+    """
+
+    return train_dataset, train_loader
+
+prepare_data()
