@@ -124,7 +124,33 @@ training neural networks:
 """
 
 dataset = TensorDataset(features, labels)
+
+# used for seeing the object:  print('dataset TensorDataset: \n ',dataset)
+
 dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
 
-print(f"Sample shape: {features.shape}")
-print(f"First sample:\n{features[0]}\nLabel: {labels[0]}")
+"""
+Since DataFrames don't work with Torch Tensors, we need to convert
+the features Tensor into a numpy array using the .numpy() function.
+We need to show it as a DataFrame.
+"""
+
+features_np = features.numpy()
+
+"""
+Though not necessary, we use .flatten() as a good practice
+within showing a DataFrame as a Numpy Array.
+"""
+
+labels_np = labels.numpy().flatten()
+full_data = pd.DataFrame(features_np, columns=df.drop(columns='churn').columns)
+
+print("Sample data:\n")
+
+"""
+Note: you can use this line to print the entire set of predictions and their 6 labels.
+
+    # print(full_data.head(len(features)).to_string(index=False))
+
+"""
+print(full_data)
