@@ -1,10 +1,12 @@
 
 
-## Readme
+<h2 id="the-situation"><strong>The situation</strong></h2>
+<p>A SaaS (Software as a Service) startup offers a subscription-based software product, serving up to approximately 10,000 paying customers at any given time. Customers are billed monthly for continued use of the service.</p>
+<h2 id="the-problem"><strong>The problem</strong></h2>
+<p>Some customers unexpectedly stop using the service or cancel their subscriptions altogether. This behavior contributes to what&#39;s known as the churn rate — the percentage of customers who discontinue their subscription each month. Accurately predicting churn is crucial for maintaining business stability and growth.</p>
+<h2 id="dealing-with-the-problem"><strong>Dealing with the problem</strong></h2>
+<p>To address this, the project aims to build a neural network that can predict monthly churn. By analyzing various customer features (represented as integers and floats), the model will estimate the likelihood of each customer ending their subscription. This predictive capability can help the business take proactive steps to retain users.</p>
 
-The goal of this project is to simulate the environment of using a neural network within a SaaS (Software as a Service) startup. In this case, the startup’s main product is a software for which customers (up to ~10,000 paying customers at any one time) pay a monthly subscription to use. Unfortunately, sometimes customers may abruptly stop using the service and / or cancel their subscription. The percentage of customers that do this per unit time (in this case monthly) is referred to as the **churn rate**.
-
-In order to predict the churn rate for each successive month, we would like to develop a neural network that analyses the **features** of each new customer and uses these features (essentially integers and floats) to predict the **probability** of the customer terminating their subscription.
 
 Files:
 
