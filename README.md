@@ -88,3 +88,16 @@ Note: I chose a float datatype for all 6 features for consistency. The weights a
 4. Optional: Tuning Hyperparameters like epochs and learning rate specific to strategies such as grid search or Beayesian optimization, can enhance model performance.
 5. Taking note of the Bias and Variance of a given model is important as it enables the tuning of hyperparameters to match different scenarios (Essentially finding a point between Linear Regression and overfitting).
 6. Obviously, a well-written README file (hello there) and good directory structure are useful to have for any given project.
+
+
+<h2 id="sample-output">Sample Output</h2>
+<p><code>Sample data:</code></p>
+<p><code>num_logins  support_tickets  ...  account_age_months  total_spent</code></p>
+<p><code>0           23.0              2.0  ...                22.0   172.691177 1           15.0              3.0  ...                13.0  1716.530884 2           21.0              2.0  ...                14.0   135.151810 3           25.0              1.0  ...                26.0   655.702393 4           15.0              0.0  ...                25.0   361.640564 ...          ...              ...  ...                 ...          ... 9995        25.0              4.0  ...                 3.0   777.498718 9996        26.0              4.0  ...                27.0   479.744415 9997        11.0              2.0  ...                11.0   783.742920 9998        20.0              0.0  ...                 6.0   292.536621 9999        21.0              2.0  ...                31.0   841.096924</code></p>
+<p><code>[10000 rows x 6 columns] Model structure: SimpleNet( (fc1): Linear(in_features=6, out_features=16, bias=True) (fc2): Linear(in_features=16, out_features=8, bias=True) (out): Linear(in_features=8, out_features=1, bias=True) )</code></p>
+<p><code>Epoch 1/50 Batch 0: Loss = 2.7136 Batch 100: Loss = 0.3699</code></p>
+<p><code>. . .</code></p>
+<p><code>Epoch 50/50 Batch 0: Loss = 0.1302 Batch 100: Loss = 0.3736 acc print: 0.9365000128746033</code></p>
+<p><code>-- Evaluation on Test Data --- Test accuracy: 93.65% Example predictions: tensor([0., 0., 0., 0., 1., 1., 0., 0., 0., 1.]) vs Ground truth: tensor([0., 0., 0., 0., 1., 1., 0., 0., 0., 1.])</code></p>
+<p><code>Process finished with exit code 0</code></p>
+
